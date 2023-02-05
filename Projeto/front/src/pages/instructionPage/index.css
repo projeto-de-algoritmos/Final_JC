@@ -1,0 +1,9 @@
+.instruction {
+    color: #ffffff;
+    width: 75%;
+    font-size: 14px;
+}
+
+.instruction-text {
+    font-weight: normal;
+}
