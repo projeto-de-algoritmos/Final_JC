@@ -1,0 +1,17 @@
+.title{
+    font-size: 36px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 30px 0px 16px 0px;
+    color: #db8d57;
+}
+  
+.content{
+    display: flex;
+    gap: 16px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}

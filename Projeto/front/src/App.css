@@ -1,0 +1,68 @@
+body {
+  background-color: #d8cbb0;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content-instructions {
+  display: flex;
+  gap: 16px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  z-index: 100;
+}
+
+.title {
+  font-size: 36px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 30px 0px 16px 0px;
+  color: #db8d57;
+}
+
+.button-customize {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.button {
+  background-color: #6e2100;
+  border-color: #3a1207;
+  border-radius: 4px;
+  height: 35px;
+  width: 130px;
+  font-size: medium;
+  color: #db8d57;
+  cursor: pointer;
+}
