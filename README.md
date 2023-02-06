@@ -13,7 +13,13 @@
 Descreva os objetivos do seu projeto e como ele funciona. 
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+![Game1](https://user-images.githubusercontent.com/40813329/217090979-1752041f-7db0-418a-a766-6e2578c5dbf2.png)
+
+![Game2](https://user-images.githubusercontent.com/40813329/217091018-e6db07a6-cc10-4f19-9b10-9f2482d1975c.png)
+
+![Game3](https://user-images.githubusercontent.com/40813329/217091052-096d0060-5979-411a-a7a0-e02905d73591.png)
+
 
 ## Instalação 
 **Linguagem**: Python e React JS<br>
