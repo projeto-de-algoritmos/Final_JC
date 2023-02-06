@@ -10,7 +10,7 @@
 | 16/0127327  |  João Paulo Coelho de Souza |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O objetivo do projeto é criar um jogo onde o usuário deve descobrir o caminho de menor custo possível, que é encontrado utilizando DFS e o caminho de melhor custo utilizando a mochila!
 
 ## Screenshots
 
@@ -63,8 +63,9 @@ npm install
 npm start
 ```
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+## Apresentação 
+
+https://user-images.githubusercontent.com/40813329/217102096-a85df32e-5e28-418f-9638-a8a3c65c9393.mp4
 
 ## Outros 
 Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
