@@ -17,7 +17,7 @@ function EasyPage() {
   }
 
   function handleSubmitAnswer() {
-    if (answer == 30 - graphAns['custo']) {
+    if (answer == 30 - graphAns['custo menor energia'] ||  answer == 30 + graphAns['custo mais rentavel']) {
       setShowAnswer(true)
       setUserAnswer(false)
     }
@@ -62,7 +62,7 @@ function EasyPage() {
 
         {userAnswer && (
           <>
-            <h2 className='desc'>Valor inicial na carteira: 30</h2>
+            <h2 className='desc'>Valor inicial na carteira e total de energia: 30</h2>
             <h2 className='desc'>Valor para entrar em cada reino:</h2>
             <h2 className='desc'>Kingdom of Tentes: {data_city['Kingdom of Tentes']}</h2>
             <h2 className='desc'>Gey: {data_city['Gey']}</h2>
@@ -70,9 +70,8 @@ function EasyPage() {
             <h2 className='desc'>Republic of Nyirkad: {data_city['Republic of Nyirkad']}</h2>
             <h2 className='desc'>Kingdom of Merland: {data_city['Kingdom of Merland']}</h2>
             <h2 className='desc'>Principality of Sicocoria: {data_city['Principality of Sicocoria']}</h2>
-            <h2 className='desc'>Indo de {graphAns['cidade inicial']} para {graphAns['cidade de destino']}, quanto de ouro você teria no final?</h2>
+            <h2 className='desc'>Indo de {graphAns['cidade inicial']} para {graphAns['cidade de destino']}, quanto de ouro ou energia você teria no final?</h2>
             <div className='input-container'>
-              <h2 className='desc'>Valor final na carteira: </h2>
               <input onChange={(e) => handleChangeAnswer(e.target.value)}
                 type="text"
                 value={answer}
@@ -92,8 +91,11 @@ function EasyPage() {
 
         {showAnswer && (
           <>
-            <h2 className='desc'>Você Acertou! O caminho, gastando apenas {graphAns['custo']} e ficando com {30 - graphAns['custo']} na carteira, seria:</h2>
-            <h2 className='desc'>{graphAns['caminho'].join("->")}</h2>
+            {console.log(graphAns['caminho mais rentavel'])}
+            <h2 className='desc'>Você Acertou! O caminho poderia ser o mais rentavel, ganhando {graphAns['custo mais rentavel']} e ficando com {30 + graphAns['custo mais rentavel']} na carteira, sendo:</h2>
+            <h2 className='desc'>{graphAns['caminho mais rentavel'].join(" OU ")}</h2>
+            <h2 className='desc'>Ou o caminho poderia ser o com menos gasto energetico, gastando apenas {graphAns['custo menor energia']} e ficando com {30 - graphAns['custo menor energia']} na carteira, sendo:</h2>
+            <h2 className='desc'>{graphAns['caminho menor energia'].join(" -> ")}</h2>
           </>
         )}
 

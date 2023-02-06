@@ -47,6 +47,9 @@ def graph(dificulty):
     start = random.choice(nodes)
     end = random.choice(nodes)
 
+    while end == start:
+        end = random.choice(nodes)
+
     results = find_path_with_fixed_cost_and_value(graph, start, end)
 
     max_value = max(value for _, _, value in results)
@@ -57,13 +60,22 @@ def graph(dificulty):
     selected_path = [path for path, _, value in results if value == max_value]
 
     cost_map = {}
-        for node1 in graph:
-            for node2 in graph[node1]:
-                cost_map[f"{node1} to {node2}"] = graph[node1][node2]
+    for node1 in graph:
+        for node2 in graph[node1]:
+            cost_map[f"{node1} to {node2}"] = graph[node1][node2]
 
-        min_cost = min(cost for _, cost in results)
+    min_cost = min(cost for _, cost, _ in results)
 
-        for min_cost in results:
-            selected_path = (min_cost)
+    for min_cost in results:
+        selected_path = (min_cost)
 
-        return{"caminho de menor esforco": selected_path[0], "caminho mais rentavel": selected_path2, "maior valor": bag, "custo": selected_path[1], "cidade inicial": start, "cidade de destino": end}
+    print(selected_path[1], bag)
+
+    return{
+            "cidade inicial": start,
+            "cidade de destino": end,
+            "caminho mais rentavel": selected_path2,
+            "caminho menor energia": selected_path[0],
+            "custo menor energia": selected_path[1],
+            "custo mais rentavel": bag
+        }

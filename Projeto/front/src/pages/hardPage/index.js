@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import MapImage from '../../assets/map.jpg';
+import MapImage from '../../assets/mapHard.jpg';
 import './index.css';
 
 function HardPage() {
@@ -17,7 +17,7 @@ function HardPage() {
   }
 
   function handleSubmitAnswer() {
-    if (answer == 40 - graphAns['custo']) {
+    if (answer == 40 - graphAns['custo menor energia'] ||  answer == 40 + graphAns['custo mais rentavel']) {
       setShowAnswer(true)
       setUserAnswer(false)
     }
@@ -68,7 +68,7 @@ function HardPage() {
       <div className='info'>
         {userAnswer && (
           <>
-            <h2 className='desc'>Valor inicial na carteira: 30</h2>
+            <h2 className='desc'>Valor inicial na carteira e total de energia: 40</h2>
             <h2 className='desc'>Valor para entrar em cada reino:</h2>
             <div className='info-container'>
               <div className='left-info'>
@@ -89,9 +89,8 @@ function HardPage() {
                 <h2 className='desc'>Bishopric of Silgulia: {data_hard['Bishopric of Silgulia']}</h2>
               </div>
             </div>
-            <h2 className='desc'>Indo de Kingdom of Tentes para Kingdom of Givrairatil, quanto de ouro você teria no final?</h2>
+            <h2 className='desc'>Indo de {graphAns['cidade inicial']} para {graphAns['cidade de destino']}, quanto de ouro ou energia você teria no final?</h2>
             <div className='input-container'>
-              <h2 className='desc'>Valor na carteira: </h2>
               <input onChange={(e) => handleChangeAnswer(e.target.value)}
                 type="text"
                 value={answer}
@@ -104,8 +103,10 @@ function HardPage() {
 
         {showAnswer && (
           <div className='show-answer-hard'>
-            <h2 className='desc'>Você Acertou! O caminho, gastando apenas {graphAns['custo']} e ficando com {40 - graphAns['custo']} na carteira, seria:</h2>
-            <h2 className='desc'>{graphAns['caminho'].join("->")}</h2>
+            <h2 className='desc'>Você Acertou! O caminho poderia ser o mais rentavel, ganhando {graphAns['custo mais rentavel']} e ficando com {40 + graphAns['custo mais rentavel']} na carteira, sendo:</h2>
+            <h2 className='desc'>{graphAns['caminho mais rentavel'].join(" OU ")}</h2>
+            <h2 className='desc'>Ou o caminho poderia ser o com menos gasto energetico, gastando apenas {graphAns['custo menor energia']} e ficando com {40 - graphAns['custo menor energia']} na carteira, sendo:</h2>
+            <h2 className='desc'>{graphAns['caminho menor energia'].join(" -> ")}</h2>
           </div>
         )}
 
