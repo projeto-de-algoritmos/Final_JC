@@ -18,7 +18,7 @@ function EasyPage() {
   }
 
   function handleSubmitAnswer() {
-    if (30 - graphAns['custo menor energia'] == 0 || 30 + graphAns['custo mais rentavel'] == 0) {
+    if (30 - graphAns['custo menor energia'] <= 0 || 30 + graphAns['custo mais rentavel'] <= 0) {
       setEndOfResource(true)
       setShowAnswer(true)
       setUserAnswer(false)
