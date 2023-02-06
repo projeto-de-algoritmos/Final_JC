@@ -27,9 +27,9 @@
     justify-content: center;
 }
 
-.button-return{
-    background-color: #197c5b;
-    border-color: #004e23;
+.button-return {
+    background-color: #d11515;
+    border-color: #ff0000;
     border-radius: 4px;
     height: 35px;
     width: 130px;
@@ -40,7 +40,20 @@
     align-self: center;
 }
 
-.button-try-again{
+.button-give-up {
+    background-color: #d11515;
+    border-color: #ff0000;
+    border-radius: 4px;
+    height: 35px;
+    width: 130px;
+    font-size: medium;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 16px 10px 16px 0px;
+    align-self: center;
+}
+
+.button-try-again {
     background-color: #197c5b;
     border-color: #004e23;
     border-radius: 4px;
@@ -67,6 +80,11 @@
 .desc {
     font-size: 17px;
     align-self: flex-start;
+}
+
+.desc-win {
+    font-size: 17px;
+    align-self: center;
 }
 
 .show-answer{

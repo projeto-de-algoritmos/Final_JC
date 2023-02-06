@@ -71,8 +71,6 @@ def graph(dificulty):
     for min_cost in results:
         selected_path = (min_cost)
 
-    print(selected_path[1], bag)
-
     return{
             "cidade inicial": start,
             "cidade de destino": end,

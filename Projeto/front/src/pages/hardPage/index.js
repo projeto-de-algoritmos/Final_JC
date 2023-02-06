@@ -10,14 +10,20 @@ function HardPage() {
   const [graphAns, setGraphAns] = useState({})
   const [tryAgain, setTryAgain] = useState(false)
   const [userAnswer, setUserAnswer] = useState(true)
+  const [endOfResource, setEndOfResource] = useState(false)
+  const [giveUp, setGiveUp] = useState(false)
 
   function handleChangeAnswer(value) {
     setAnswer(value)
-    console.log(answer)
   }
 
   function handleSubmitAnswer() {
-    if (answer == 40 - graphAns['custo menor energia'] ||  answer == 40 + graphAns['custo mais rentavel']) {
+    if (30 - graphAns['custo menor energia'] == 0 || 30 + graphAns['custo mais rentavel'] == 0) {
+      setEndOfResource(true)
+      setShowAnswer(true)
+      setUserAnswer(false)
+    }
+    else if (answer == 40 - graphAns['custo menor energia'] ||  answer == 40 + graphAns['custo mais rentavel']) {
       setShowAnswer(true)
       setUserAnswer(false)
     }
@@ -30,6 +36,13 @@ function HardPage() {
   function handleSubmitTryAgain() {
     setTryAgain(false)
     setUserAnswer(true)
+  }
+
+  function handleSubmitGiveUp() {
+    setShowAnswer(true)
+    setTryAgain(false)
+    setUserAnswer(false)
+    setGiveUp(true)
   }
 
   const getApiData = async () => {
@@ -103,10 +116,21 @@ function HardPage() {
 
         {showAnswer && (
           <div className='show-answer-hard'>
-            <h2 className='desc'>Você Acertou! O caminho poderia ser o mais rentavel, ganhando {graphAns['custo mais rentavel']} e ficando com {40 + graphAns['custo mais rentavel']} na carteira, sendo:</h2>
-            <h2 className='desc'>{graphAns['caminho mais rentavel'].join(" OU ")}</h2>
-            <h2 className='desc'>Ou o caminho poderia ser o com menos gasto energetico, gastando apenas {graphAns['custo menor energia']} e ficando com {40 - graphAns['custo menor energia']} na carteira, sendo:</h2>
-            <h2 className='desc'>{graphAns['caminho menor energia'].join(" -> ")}</h2>
+            {!giveUp && <h2 className='desc-win'>Você acertou!</h2>}
+            {endOfResource ? (
+              <>
+                <h2 className='desc'>Você Ficou sem energia ou sem dinheiro!</h2>
+                <h2 className='desc'>Sua carteira final: {30 + graphAns['custo mais rentavel']}</h2>
+                <h2 className='desc'>Sua energia final: {30 - graphAns['custo menor energia']}</h2>
+              </>
+            ):(
+              <>
+                <h2 className='desc'>O caminho poderia ser o mais rentavel, ganhando {graphAns['custo mais rentavel']} e ficando com {30 + graphAns['custo mais rentavel']} na carteira, sendo:</h2>
+                <h2 className='desc'>{graphAns['caminho mais rentavel'].join(" OU ")}</h2>
+                <h2 className='desc'>Ou o caminho poderia ser o com menos gasto energetico, gastando apenas {graphAns['custo menor energia']} e ficando com {30 - graphAns['custo menor energia']} na carteira, sendo:</h2>
+                <h2 className='desc'>{graphAns['caminho menor energia'].join(" -> ")}</h2>
+              </>
+            )}
           </div>
         )}
 
@@ -116,7 +140,11 @@ function HardPage() {
             <button onClick={handleSubmitTryAgain} className="button-try-again">Tentar Novamente</button>
           </div>
         )}
-        <button className="button-return" onClick={() => navigate("/")}>Voltar</button>
+        
+        <div className='button-container'>
+          {!showAnswer && <button onClick={handleSubmitGiveUp} className="button-give-up">Resposta</button>}
+          <button className="button-return" onClick={() => navigate("/")}>Voltar</button>
+        </div>
       </div>
     </div>
   );

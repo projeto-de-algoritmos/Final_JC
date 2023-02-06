@@ -30,7 +30,7 @@ function InstructionPage() {
             Lembrando que valores negativos relativo a energia seriam somados (pois restauram) 
             e valores negativos relativos a moedas seriam subtraidos (pois foi gasto).
           </h2>
-          <button className="button" onClick={() => navigate("/")}>Voltar</button>
+          <button className="button-return" onClick={() => navigate("/")}>Voltar</button>
       </div>
   );
 }
